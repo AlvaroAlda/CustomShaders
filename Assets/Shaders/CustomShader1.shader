@@ -3,7 +3,12 @@ Shader "Unlit/CustomShader1"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        _Color("Color", Color) = (1,1,1,1)
+        
+        _Scale("Scale", float) = 1
+        _Offset("Offset", float) = 0
+        
+        _ColorA("Color A", Color) = (1,1,1,1)
+        _ColorB("Color B", Color) = (0,0,0,1)
     }
     SubShader
     {
@@ -22,7 +27,12 @@ Shader "Unlit/CustomShader1"
 
             sampler2D _MainTex;
             float4 _MainTex_ST;
-            float4 _Color;
+            
+            float4 _ColorA;
+            float4 _ColorB;
+
+            float _Offset;
+            float _Scale;
             
             struct MeshData
             {
@@ -35,6 +45,7 @@ Shader "Unlit/CustomShader1"
             {
                 float4 vertex : SV_POSITION;
                 float3 normal: TEXCOORD0;
+                float2 uv: TEXCOORD1;
             };
 
             Interpolators vert (MeshData v)
@@ -42,13 +53,15 @@ Shader "Unlit/CustomShader1"
                 Interpolators o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.normal = UnityObjectToWorldNormal(v.normals);
+                o.uv = (v.uv0 + _Offset) * _Scale ;
                 return o;
             }
 
             fixed4 frag (Interpolators i) : SV_Target
             {
                 // sample the texture
-                return float4(i.normal, 1);
+                float4 color = lerp(_ColorA, _ColorB, i.uv.x);
+                return color;
             }
             ENDCG
         }
