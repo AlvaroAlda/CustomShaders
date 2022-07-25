@@ -12,11 +12,18 @@ Shader "Unlit/CustomShader1"
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags { 
+            "RenderType"="Transparent"
+            "RenderQueue" = "Transparent"
+             }
         LOD 100
 
         Pass
         {
+            Cull Off
+            //Blend One One // Additive
+            //Blend DstColor Zero // Multiply
+            
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
@@ -59,9 +66,15 @@ Shader "Unlit/CustomShader1"
 
             fixed4 frag (Interpolators i) : SV_Target
             {
+                
+                
+                float xOffset = cos(i.uv.y * 6.58 * 8) * 0.01;
+                float t = cos((i.uv.x + xOffset + _Time.y * 0.2) * 6.58 * 5) * 0.5 + 0.5;
+                t*= (1 -i.uv.y);
+                return t;
                 // sample the texture
-                float4 color = lerp(_ColorA, _ColorB, i.uv.x);
-                return color;
+                //float color = lerp(_ColorA, _ColorB, t);
+                //return color;
             }
             ENDCG
         }
