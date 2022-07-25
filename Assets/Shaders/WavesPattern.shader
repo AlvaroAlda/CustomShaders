@@ -74,12 +74,13 @@ Shader "Unlit/CustomShader1"
             {
                 Interpolators o;
 
-                float wave = getWave(v.uv0);
-                v.vertex.z = (wave) *_WaveAmplitude;
+                o.uv = (v.uv0 + _Offset) * _Scale ;
+                float wave = getWave(o.uv);
+                v.vertex.z = (wave + _Offset) *_WaveAmplitude;
                 
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.normal = UnityObjectToWorldNormal(v.normals);
-                o.uv = (v.uv0 + _Offset) * _Scale ;
+                
                 return o;
             }
 

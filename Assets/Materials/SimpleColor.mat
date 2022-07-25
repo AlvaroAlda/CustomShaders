@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Unlit_SimpleColor
+  m_Name: SimpleColor
   m_Shader: {fileID: 4800000, guid: e52363627a96dd0459c8a5ed6045ebcf, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
