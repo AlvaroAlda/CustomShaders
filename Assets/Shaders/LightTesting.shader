@@ -4,6 +4,7 @@ Shader "Unlit/LightTesting"
     {
         _Gloss ("Glossines", Range(0,1)) = 1
         _Color("Color", Color) = (1,1,1,1)
+        _AmbientColor("Color", Color) = (0.5,0.5,0.5,1)
         
          _FresnelPOW ("FresnelPOW", Range(0,1)) = 1
         [HDR] _FresnelColor("FresnelColor", Color) = (1,1,1,1)
@@ -43,6 +44,7 @@ Shader "Unlit/LightTesting"
             CBUFFER_START(UnityPerMaterial)
             float4 _Color;
             float4 _FresnelColor;
+            float4 _AmbientColor;
             float _Gloss;
             float _FresnelPOW;
             CBUFFER_END
@@ -86,8 +88,10 @@ Shader "Unlit/LightTesting"
                 float fresnel = (1-dot(view, normal)) * ((cos(_Time.y * 4))* 0.5 + 0.5);
                 float fresnelExponent = exp2(_FresnelPOW * 3);
                 fresnel = pow(fresnel, fresnelExponent);
+
+                float3 totalLight = (specular + (diffuseLight + _AmbientColor)* _Color);
                 
-                return float4(specular + diffuseLight * _Color + fresnel * _FresnelColor, 1);
+                return float4(totalLight + fresnel * _FresnelColor, 1);
             }
             ENDCG
         }
