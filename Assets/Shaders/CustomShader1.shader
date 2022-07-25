@@ -4,6 +4,8 @@ Shader "Unlit/CustomShader1"
     {
         _MainTex ("Texture", 2D) = "white" {}
         
+        _WaveAmplitude ("Wave Amplitude", float) = 0.001
+        
         _Scale("Scale", float) = 1
         _Offset("Offset", float) = 0
         
@@ -13,8 +15,8 @@ Shader "Unlit/CustomShader1"
     SubShader
     {
         Tags { 
-            "RenderType"="Transparent"
-            "RenderQueue" = "Transparent"
+            "RenderType"="Opaque"
+            "RenderQueue" = "Geometry"
              }
         LOD 100
 
@@ -37,9 +39,6 @@ Shader "Unlit/CustomShader1"
             
             float4 _ColorA;
             float4 _ColorB;
-
-            float _Offset;
-            float _Scale;
             
             struct MeshData
             {
@@ -55,9 +54,29 @@ Shader "Unlit/CustomShader1"
                 float2 uv: TEXCOORD1;
             };
 
+            CBUFFER_START(UnityPerMaterial)
+            float _Offset;
+            float _Scale;
+            float _WaveAmplitude;
+            CBUFFER_END
+            
+              float getWave (float2 uv)
+            {
+                float2 uvsCentered = uv * 2 - 1;
+                float radialDistance = length(uvsCentered);
+
+                float wave = cos((radialDistance -_Time.y * 0.1) * 6.58 * 5) * 0.5 + 0.5;
+                wave *= 1 -radialDistance;
+                return wave;
+            }
+            
             Interpolators vert (MeshData v)
             {
                 Interpolators o;
+
+                float wave = getWave(v.uv0);
+                v.vertex.z = (wave) *_WaveAmplitude;
+                
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.normal = UnityObjectToWorldNormal(v.normals);
                 o.uv = (v.uv0 + _Offset) * _Scale ;
@@ -66,16 +85,11 @@ Shader "Unlit/CustomShader1"
 
             fixed4 frag (Interpolators i) : SV_Target
             {
-                
-                
-                float xOffset = cos(i.uv.y * 6.58 * 8) * 0.01;
-                float t = cos((i.uv.x + xOffset + _Time.y * 0.2) * 6.58 * 5) * 0.5 + 0.5;
-                t*= (1 -i.uv.y);
-                return t;
-                // sample the texture
-                //float color = lerp(_ColorA, _ColorB, t);
-                //return color;
+                return getWave(i.uv);
             }
+
+          
+            
             ENDCG
         }
     }
