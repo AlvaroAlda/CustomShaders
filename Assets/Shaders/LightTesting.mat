@@ -10,7 +10,9 @@ Material:
   m_Name: LightTesting
   m_Shader: {fileID: 4800000, guid: ee008bfbfc7b50e49b718c97e8857250, type: 3}
   m_ValidKeywords: []
-  m_InvalidKeywords: []
+  m_InvalidKeywords:
+  - _FRESNEL_OFF
+  - _ZWRITE_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -26,10 +28,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FresnelPOW: 0.835
-    - _Gloss: 0.316
+    - _Cull: 2
+    - _DstBlend: 10
+    - _Fresnel: 0
+    - _FresnelPOW: 0.974
+    - _Gloss: 0.414
+    - _SrcBlend: 5
+    - _ZWrite: 1
     m_Colors:
     - _AmbientColor: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
-    - _Color: {r: 0.6981132, g: 0.04873618, b: 0.04873618, a: 1}
+    - _Color: {r: 1, g: 0, b: 0, a: 1}
     - _FresnelColor: {r: 0, g: 14.128489, b: 28.109806, a: 1}
   m_BuildTextureStacks: []
