@@ -16,13 +16,7 @@ Shader "Unlit/LightTesting"
         
         _Gloss ("Glossines", Range(0,1)) = 1
         _Color("Color", Color) = (1,1,1,1)
-        _AmbientColor("Ambient Color", Color) = (0.5,0.5,0.5,1)
-        
-        [ToggleOff] _Fresnel ("Fresnel", float) = 0
-         _FresnelPOW ("FresnelPOW", Range(0,1)) = 1
-        [HDR] _FresnelColor("FresnelColor", Color) = (1,1,1,1)
-        
-
+        _Ambient("Ambient", Range(0,1)) = 1
     }
     SubShader
     {
@@ -54,6 +48,7 @@ Shader "Unlit/LightTesting"
 
             //For URP only
             #pragma multi_compile _ _MAIN_LIGHT_SHADOW
+
             #include "HLSLSupport.cginc"
             
             #include "UnityCG.cginc"
@@ -80,6 +75,8 @@ Shader "Unlit/LightTesting"
             float4 _Color;
             float4 _FresnelColor;
             float4 _AmbientColor;
+
+            float _Ambient;
             float _Gloss;
             float _FresnelPOW;
             float _Fresnel;
@@ -125,7 +122,9 @@ Shader "Unlit/LightTesting"
                 float fresnel = (1-dot(view, normal)) * ((cos(_Time.y * 4))* 0.5 + 0.5);
                 float fresnelExponent = exp2(_FresnelPOW * 3);
                 fresnel = pow(fresnel, fresnelExponent);
-                float3 totalLight = (specular + (diffuseLight + _AmbientColor)* _Color);
+                
+                half3 lightAmbient = half3(unity_SHAr.w, unity_SHAg.w, unity_SHAb.w);
+                float3 totalLight = (specular + (diffuseLight + lightAmbient * _Ambient)* _Color);
                 
                 return float4(totalLight, _Color.a);
             }
@@ -133,7 +132,7 @@ Shader "Unlit/LightTesting"
         }
         
         //FOR BUILT IN RP
-         /*Pass
+         Pass
         {
             Tags {"LightMode"="ShadowCaster"}
 
@@ -141,6 +140,7 @@ Shader "Unlit/LightTesting"
             #pragma vertex vert
             #pragma fragment frag
             #pragma multi_compile_shadowcaster
+            
             #include "UnityCG.cginc"
 
             struct v2f { 
@@ -159,9 +159,9 @@ Shader "Unlit/LightTesting"
                 SHADOW_CASTER_FRAGMENT(i)
             }
             ENDCG
-        }*/
+        }
         
         //For URP or other SRP 
-        UsePass "Universal Render Pipeline/Lit/ShadowCaster"
+        //UsePass "Universal Render Pipeline/Lit/ShadowCaster"
     }
 }
