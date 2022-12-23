@@ -43,7 +43,7 @@ Material:
     - _CastShadows: 0
     - _Cull: 0
     - _DstBlend: 0
-    - _Fill: 0.479
+    - _Fill: 0.526
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SrcBlend: 1

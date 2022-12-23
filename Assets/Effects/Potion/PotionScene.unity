@@ -159,8 +159,8 @@ Camera:
   m_GameObject: {fileID: 766694940}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -231,7 +231,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -422,6 +422,51 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Potion
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854653688578352327, guid: 76ec0b35d3868b74bb35519f98525dd6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.4869505
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854653688578352327, guid: 76ec0b35d3868b74bb35519f98525dd6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.48239034
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854653688578352327, guid: 76ec0b35d3868b74bb35519f98525dd6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.6402863
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854653688578352327, guid: 76ec0b35d3868b74bb35519f98525dd6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.34671628
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854653688578352327, guid: 76ec0b35d3868b74bb35519f98525dd6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -1.479
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854653688578352327, guid: 76ec0b35d3868b74bb35519f98525dd6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 253.41501
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854653688578352327, guid: 76ec0b35d3868b74bb35519f98525dd6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 72.886
+      objectReference: {fileID: 0}
+    - target: {fileID: 6419994651202278648, guid: 76ec0b35d3868b74bb35519f98525dd6,
+        type: 3}
+      propertyPath: fillAmount
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6419994651202278648, guid: 76ec0b35d3868b74bb35519f98525dd6,
+        type: 3}
+      propertyPath: CompensateShapeAmount
+      value: 0.227
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76ec0b35d3868b74bb35519f98525dd6, type: 3}
