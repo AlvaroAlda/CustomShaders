@@ -52,14 +52,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Distorsion: 0.077
-    - _FresnelPower: 4.14
+    - _Distorsion: 0.08
+    - _FresnelPower: 1.07
     - _Metallic: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Smoothness: 0.6
+    - _Smoothness: 1
     - _TextureFade: 0.55
     m_Colors:
-    - _Color: {r: 0.6367924, g: 0.890082, b: 1, a: 1}
+    - _Color: {r: 0.3912769, g: 2.135132, b: 2.880234, a: 0.9372549}
     - _FresnelColor: {r: 0.3820755, g: 0.62896323, b: 1, a: 0}
   m_BuildTextureStacks: []

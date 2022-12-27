@@ -57,7 +57,7 @@ Material:
     - _Cull: 2
     - _DstBlend: 10
     - _EdgeWidth: 0.2
-    - _NoiseFill: 2
+    - _NoiseFill: 1.6900623
     - _NoiseStrength: 32.06
     - _QueueControl: 0
     - _QueueOffset: 0

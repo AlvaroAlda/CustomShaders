@@ -49,7 +49,7 @@ Material:
     - _DstBlend: 10
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Resolution: 19.964485
+    - _Resolution: 17.895353
     - _SrcBlend: 5
     - _Surface: 1
     - _ZTest: 4

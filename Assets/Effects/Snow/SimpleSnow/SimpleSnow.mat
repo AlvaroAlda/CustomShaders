@@ -37,9 +37,9 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _ShineSpeed: 1
-    - _SnowAmount: -0.4
-    - _SnowBrights: 100
+    - _ShineSpeed: 1.09
+    - _SnowAmount: -0.66
+    - _SnowBrights: 100.79
     m_Colors:
     - _Color: {r: 1, g: 0.42148757, b: 0, a: 1}
   m_BuildTextureStacks: []

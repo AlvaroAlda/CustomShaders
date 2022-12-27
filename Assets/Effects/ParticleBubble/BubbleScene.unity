@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 162053202}
   - component: {fileID: 162053201}
   m_Layer: 0
-  m_Name: Bubble
+  m_Name: BubbleParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5063,7 +5063,7 @@ GameObject:
   - component: {fileID: 1801120529}
   - component: {fileID: 1801120528}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: BigBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
