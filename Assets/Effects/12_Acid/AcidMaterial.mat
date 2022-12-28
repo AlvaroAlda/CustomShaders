@@ -35,19 +35,24 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AcidAnimationSpeed: 0.85
-    - _AcidMovementOffset: 0.05
+    - _AcidAnimationSpeed: 2
+    - _AcidMovementOffset: 0.13
     - _AcidMovementSpeed: 0.08
-    - _AcidNoiseScale: 16.97
-    - _Depth: 1.26
+    - _AcidNoiseScale: 25.94
+    - _AcidResolution: 4.31
+    - _BlendOpacity: 1.28
+    - _Depth: 0.66
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Smoothness: 0.825
-    - _Strength: -0.98
+    - _ScrollSpeed: 0.1
+    - _Smoothness: 0.869
+    - _Strength: -0.55
+    - _SwirlStrength: 2.58
     m_Colors:
-    - _AcidDarkColor: {r: 0.003921569, g: 0.29411766, b: 0, a: 1}
-    - _AcidLightColor: {r: 1.5499214, g: 1.7411011, b: 0, a: 1}
-    - _DepthColor: {r: 0.43527526, g: 0.43527526, b: 0.43527526, a: 0.45490196}
+    - _AcidDarkColor: {r: 0.12036076, g: 0.3584906, b: 0.0047347625, a: 1}
+    - _AcidLightColor: {r: 0.5728738, g: 0.6132076, b: 0, a: 1}
+    - _BorderColor: {r: 14.420417, g: 41.73181, b: 0, a: 1}
+    - _DepthColor: {r: 0.48003688, g: 0.6037736, b: 0.019366283, a: 0.56078434}
     - _ShallowColor: {r: 0.8301887, g: 0.8301887, b: 0.8301887, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &7189199777668579779

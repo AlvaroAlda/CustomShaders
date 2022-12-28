@@ -61,7 +61,7 @@ Material:
     m_Floats:
     - _AnimationTime: 0.03
     - _CellDensity: 1.5
-    - _LavaAmount: 0.798
+    - _LavaAmount: 0.404
     - _PatternAnimTime: 0.62
     - _QueueControl: 0
     - _QueueOffset: 0

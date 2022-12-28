@@ -12,7 +12,11 @@
     ],
     "m_Keywords": [],
     "m_Dropdowns": [],
-    "m_CategoryData": [],
+    "m_CategoryData": [
+        {
+            "m_Id": "781637efea2748848ba229adc2d5d7a3"
+        }
+    ],
     "m_Nodes": [
         {
             "m_Id": "26ba597294ac42f09f0c1b392b6aa96e"
@@ -617,10 +621,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 67.39999389648438,
-            "y": 222.99998474121095,
-            "width": 0.0,
-            "height": 0.0
+            "x": 216.99996948242188,
+            "y": 8.000051498413086,
+            "width": 131.00006103515626,
+            "height": 33.999969482421878
         }
     },
     "m_Slots": [
@@ -733,7 +737,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 0.0,
+    "m_Value": -0.029999999329447748,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,
@@ -874,6 +878,21 @@
         "y": 0.0
     },
     "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.CategoryData",
+    "m_ObjectId": "781637efea2748848ba229adc2d5d7a3",
+    "m_Name": "",
+    "m_ChildObjectList": [
+        {
+            "m_Id": "552e90a447374463a6f6c3fc1ac5f7e9"
+        },
+        {
+            "m_Id": "932efeda87364651875ad67be3578029"
+        }
+    ]
 }
 
 {
@@ -1190,10 +1209,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -929.4000244140625,
-            "y": 110.19990539550781,
-            "width": 0.0,
-            "height": 0.0
+            "x": -791.0000610351563,
+            "y": -105.00001525878906,
+            "width": 195.0,
+            "height": 34.00000762939453
         }
     },
     "m_Slots": [
@@ -1303,10 +1322,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -127.39999389648438,
-            "y": 11.799896240234375,
-            "width": 208.0,
-            "height": 301.5999755859375
+            "x": -165.00001525878907,
+            "y": -10.000015258789063,
+            "width": 208.00003051757813,
+            "height": 302.0
         }
     },
     "m_Slots": [
