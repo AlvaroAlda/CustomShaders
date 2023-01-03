@@ -47,7 +47,7 @@ Material:
     - Vector1_98ff36fc84b1432fab020008f6fddb93: 64
     - _Angle: 24
     - _FresnelPower: 1
-    - _GlitchStrength: 0
+    - _GlitchStrength: 0.260471
     - _Power: 4
     - _QueueControl: 0
     - _QueueOffset: 0

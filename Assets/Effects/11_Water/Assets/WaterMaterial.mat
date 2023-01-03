@@ -43,7 +43,7 @@ Material:
     - _Blend: 0
     - _CastShadows: 1
     - _Cull: 2
-    - _Depth: -1.19
+    - _Depth: -1.18
     - _DstBlend: 10
     - _FoamColor: 0.2
     - _PatternMovementSpeed: 1
@@ -52,7 +52,7 @@ Material:
     - _ReceiveShadows: 0
     - _Smoothness: 1
     - _SrcBlend: 5
-    - _Strength: 0.4
+    - _Strength: 0.51
     - _Surface: 1
     - _WaterHigh: 0.19
     - _WaterMovementSpeed: -0.02

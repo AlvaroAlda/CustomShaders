@@ -48,10 +48,10 @@ Material:
     - Vector1_b0958982f14b4172a011ee213a7c3701: 0.124
     - Vector1_b438d2a2118f4aca80e38caafe29a16c: -7.86
     - Vector1_c010263ca5dd48fb9b3c3e7935de25d9: 0.49
-    - _AnimationSpeed: 0.15
+    - _AnimationSpeed: 0.09
     - _BrightSize: 0.3
     - _Displacement: 0.22
-    - _DistorsionAmount: 0.18
+    - _DistorsionAmount: 0.5
     - _Frequency: 4
     - _FresnelPower: 4
     - _NoiseScale: 5.52

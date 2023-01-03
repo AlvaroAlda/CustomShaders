@@ -1195,7 +1195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ef5dc56a72bad849be3c5912196506f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionTime: 1
+  transitionTime: 1.44
   loop: 0
 --- !u!114 &1742496999
 MonoBehaviour:
