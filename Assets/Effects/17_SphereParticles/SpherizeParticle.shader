@@ -28,6 +28,7 @@ Shader "Unlit/SpherizeParticle"
             {
                 float4 vertex : POSITION;
                 float2 uv : TEXCOORD0;
+                float4 color: COLOR;
             };
 
             struct v2f
@@ -35,22 +36,26 @@ Shader "Unlit/SpherizeParticle"
                 float2 uv : TEXCOORD0;
                 float4 vertex : SV_POSITION;
                 float3 wPos: TEXCOORD3;
+                float4 color : COLOR;
             };
 
             float4 _MainTex_ST;
-            float4 _Color;
             
+            CBUFFER_START(UnityPerMaterial)
+            float4 _Color;
             float _Ambient;
             float _Gloss;
             float _GlossStrength;
-
+            CBUFFER_END
+  
+       
             v2f vert (appdata v)
             {
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv = v.uv * 2 - 1;
                 o.wPos = mul(unity_ObjectToWorld, v.vertex);
-   
+                o.color = v.color;
                 return o;
             }
 
@@ -76,8 +81,8 @@ Shader "Unlit/SpherizeParticle"
                 
                 half3 lightAmbient = half3(unity_SHAr.w, unity_SHAg.w, unity_SHAb.w);
                 float3 totalLight = (specular + (diffuseLight + lightAmbient * _Ambient) * _Color);
-                
-                return float4(totalLight, _Color.a);
+                float3 color = totalLight * i.color;
+                return float4(color, _Color.a * i.color.a);
             }
             ENDCG
         }

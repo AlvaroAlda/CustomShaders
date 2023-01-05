@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43723974, g: 0.47723126, b: 0.5233527, a: 1}
+  m_IndirectSpecularColor: {r: 0.4490254, g: 0.4990883, b: 0.575713, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1153,7 +1153,7 @@ ParticleSystem:
     m_BurstCount: 0
     m_Bursts: []
   SizeModule:
-    enabled: 1
+    enabled: 0
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -1495,7 +1495,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 1}
+        key1: {r: 1, g: 1, b: 1, a: 0}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -5031,7 +5031,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &898630246
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5198,14 +5198,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1582951727}
-  m_LocalRotation: {x: 0.33340192, y: 0.16481654, z: -0.91567427, w: -0.15237875}
+  m_LocalRotation: {x: 0.14623249, y: 0.45740965, z: -0.50994074, w: 0.7136896}
   m_LocalPosition: {x: -11.34, y: 7.51, z: -1.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 11.55, y: -42.412, z: -203.391}
+  m_LocalEulerAnglesHint: {x: 42.472, y: 43.076, z: -53.654}
 --- !u!114 &1582951730
 MonoBehaviour:
   m_ObjectHideFlags: 0
