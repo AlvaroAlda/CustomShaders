@@ -4,8 +4,10 @@ Shader "Unlit/SpherizeParticle"
     {
       _Color("Color", Color) = (1,1,1,1)
       _Gloss ("Gloss", Range(0.001 ,5)) = 1
-      _GlossStrength("GlossStrength", Range(0.001 ,1)) = 1
-      _Ambient ("Ambient Amount", Range(0,1)) = 1
+      _GlossStrength("GlossStrength", Range(0.001 ,20)) = 1
+      _Ambient ("Ambient Amount", Range(0,5)) = 1
+      _FresnelPower("Fresnel Power", Float) = 5
+      _FresnelAmount("Fresnel Amount", Range(0.01,1)) = 0.2
     }
     SubShader
     {
@@ -17,8 +19,6 @@ Shader "Unlit/SpherizeParticle"
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-            // make fog work
-            #pragma multi_compile_fog
 
             #include "UnityCG.cginc"
             #include "AutoLight.cginc"
@@ -35,9 +35,9 @@ Shader "Unlit/SpherizeParticle"
             {
                 float2 uv : TEXCOORD0;
                 float4 vertex : SV_POSITION;
-                float3 wPos: TEXCOORD3;
                 float4 color : COLOR;
             };
+            
 
             float4 _MainTex_ST;
             
@@ -46,6 +46,8 @@ Shader "Unlit/SpherizeParticle"
             float _Ambient;
             float _Gloss;
             float _GlossStrength;
+            float _FresnelPower;
+            float _FresnelAmount;
             CBUFFER_END
   
        
@@ -54,7 +56,6 @@ Shader "Unlit/SpherizeParticle"
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv = v.uv * 2 - 1;
-                o.wPos = mul(unity_ObjectToWorld, v.vertex);
                 o.color = v.color;
                 return o;
             }
@@ -65,26 +66,40 @@ Shader "Unlit/SpherizeParticle"
                 N.xy = i.uv;
 
                 //Discard non circular coordinates
-                float r2 = dot(N.xy, N.xy);
+                const float r2 = dot(N.xy, N.xy);
                 if (r2 > 1.0) discard;
                 N.z = sqrt(1.0f - r2);
-
-                //Diffuse Lighting
-                float3 normal = float3(N.x, N.y, -N.z);
-                float3 light = _WorldSpaceLightPos0.xyz;
-                float3 lambertian = saturate(dot(normal, light));
                 
-                float3 diffuseLight = lambertian * _LightColor0;
+                //Diffuse Lighting
+                const float3 normal = mul((float3x3) transpose(UNITY_MATRIX_V), float3(N.x, N.y, N.z));
+                const float3 light = _WorldSpaceLightPos0.xyz;
+                const float3 lambertian = saturate(dot(normalize(normal), light));
+
+                const float3 diffuseLight = lambertian * _LightColor0;
 
                 //Specular lighting highlights
-                float3 specular = pow(diffuseLight, _Gloss * 30) * _GlossStrength;
+                float3 view = normalize(_WorldSpaceCameraPos - normal);
+                float3 halfVector = normalize(light + view); // used in bling-phong
+
+                //The boolean multiplication avoids strange sports from behind the light 
+                float3 specular = saturate(dot(halfVector, normal)) * (lambertian > 0);
+                float specularExponent = exp2(_Gloss * _GlossStrength + 1);
+                specular = pow(specular, specularExponent) * _Gloss;
+                specular *= _LightColor0.xyz;
                 
-                half3 lightAmbient = half3(unity_SHAr.w, unity_SHAg.w, unity_SHAb.w);
-                float3 totalLight = (specular + (diffuseLight + lightAmbient * _Ambient) * _Color);
+                //Ambient
+                const float3 lightAmbient = half3(unity_SHAr.w, unity_SHAg.w, unity_SHAb.w);
+
+                const float3 totalLight = specular + (diffuseLight + lightAmbient * _Ambient) * _Color;
                 float3 color = totalLight * i.color;
+                
                 return float4(color, _Color.a * i.color.a);
             }
             ENDCG
         }
     }
 }
+
+
+
+
