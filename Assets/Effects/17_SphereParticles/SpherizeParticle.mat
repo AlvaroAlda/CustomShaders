@@ -30,8 +30,8 @@ Material:
     - _BaseMap_ST: 2.3
     - _FresnelAmount: 0.381
     - _FresnelPower: 12.2
-    - _Gloss: 0.32
-    - _GlossStrength: 15.6
+    - _Gloss: 0.36
+    - _GlossStrength: 12.8
     m_Colors:
-    - _Color: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 1}
+    - _Color: {r: 0.8396226, g: 0.8396226, b: 0.8396226, a: 1}
   m_BuildTextureStacks: []

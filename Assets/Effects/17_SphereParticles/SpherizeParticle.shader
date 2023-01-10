@@ -6,8 +6,6 @@ Shader "Unlit/SpherizeParticle"
       _Gloss ("Gloss", Range(0.001 ,5)) = 1
       _GlossStrength("GlossStrength", Range(0.001 ,20)) = 1
       _Ambient ("Ambient Amount", Range(0,5)) = 1
-      _FresnelPower("Fresnel Power", Float) = 5
-      _FresnelAmount("Fresnel Amount", Range(0.01,1)) = 0.2
     }
     SubShader
     {
@@ -46,8 +44,6 @@ Shader "Unlit/SpherizeParticle"
             float _Ambient;
             float _Gloss;
             float _GlossStrength;
-            float _FresnelPower;
-            float _FresnelAmount;
             CBUFFER_END
   
        
@@ -69,9 +65,11 @@ Shader "Unlit/SpherizeParticle"
                 const float r2 = dot(N.xy, N.xy);
                 if (r2 > 1.0) discard;
                 N.z = sqrt(1.0f - r2);
-                
-                //Diffuse Lighting
+
+                //Compensate the view matrix due to quad constantly rotating towards it
                 const float3 normal = mul((float3x3) transpose(UNITY_MATRIX_V), float3(N.x, N.y, N.z));
+
+                //Diffuse Lighting
                 const float3 light = _WorldSpaceLightPos0.xyz;
                 const float3 lambertian = saturate(dot(normalize(normal), light));
 
@@ -90,6 +88,7 @@ Shader "Unlit/SpherizeParticle"
                 //Ambient
                 const float3 lightAmbient = half3(unity_SHAr.w, unity_SHAg.w, unity_SHAb.w);
 
+                //All light components
                 const float3 totalLight = specular + (diffuseLight + lightAmbient * _Ambient) * _Color;
                 float3 color = totalLight * i.color;
                 
