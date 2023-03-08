@@ -1,47 +1,32 @@
+using System;
+using DG.Tweening;
+using Unity.VisualScripting;
+
 namespace ShaderGraphCookBook
 {
     using System.Collections;
     using UnityEngine;
-    using UnityEngine.UI;
-
+    
     public class UITransition : MonoBehaviour
     {
         [SerializeField] private float transitionTime = 2f;
         [SerializeField] private bool loop = false;
-        private Material targetMaterial;
+        [SerializeField] private Material targetMaterial;
         private readonly int _progressId = Shader.PropertyToID("_Progress");
 
 
-        void Start()
+        IEnumerator Start()
         {
-            targetMaterial = GetComponent<MaskableGraphic>()?.material;
+            yield return new WaitForSeconds(0.25f);
             
             if (targetMaterial != null)
             {
-                StartCoroutine(Transition());
-            }
-        }
-
- 
-        IEnumerator Transition()
-        {
-            float t = 0f;
-            while (t < transitionTime)
-            {
-                float progress = t / transitionTime;
-
-                targetMaterial.SetFloat(_progressId, progress);
-                yield return null;
-
-                t += Time.deltaTime;
-            }
-
-            targetMaterial.SetFloat(_progressId, 1.001f);
-
-            if (loop)
-            {
-                yield return new WaitForSeconds(1f);
-                yield return Transition();
+                targetMaterial.SetFloat(_progressId, 1);
+                
+                targetMaterial.
+                    DOFloat(0, _progressId, transitionTime).
+                    SetLoops(loop? -1:0, LoopType.Yoyo).
+                    SetEase(Ease.InOutQuad);
             }
         }
     }

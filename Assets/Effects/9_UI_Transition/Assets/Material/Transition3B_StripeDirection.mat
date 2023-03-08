@@ -40,7 +40,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Direction: 60
-    - _Progress: 1
+    - _Progress: 1.001
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Repeat: 8
