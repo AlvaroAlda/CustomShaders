@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7630351470646344585
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UpgradeWaveMaterial
+  m_Shader: {fileID: -6465566751694194690, guid: 3b6087951ae6446a6b0c074840f75eb9,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2999
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Texture2DAsset_e1012e6aac714f62acfe25996a0050c4_Out_0:
+        m_Texture: {fileID: 2800000, guid: 47faf72965ae9469ab03e64e16520dad, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _WaveUpgradeTexture:
+        m_Texture: {fileID: 2800000, guid: cd4d403c99bec47278077d0515578886, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _QueueControl: 0
+    - _QueueOffset: -1
+    - _WaveValue: -0.5
+    m_Colors:
+    - _Color: {r: 0, g: 0.80691403, b: 3.6886053, a: 1}
+    - _Color2: {r: 4.538847, g: 8, b: 0, a: 1}
+    - _Offset: {r: 0, g: -0.5, b: 0, a: 0}
+    - _Tiling: {r: 0.74, g: 0.91, b: 0, a: 0}
+  m_BuildTextureStacks: []
