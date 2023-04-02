@@ -43,11 +43,11 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 29
     - _RimPower: 1.47
-    - _SnowAmount: 0.8
+    - _SnowAmount: -0.06
     - _TransitionSpeed: 0.5
     m_Colors:
     - _RimColor: {r: 0.79861474, g: 11.313708, b: 8.47419, a: 0}
-    - _SnowAngle: {r: 2.91, g: 2.63, b: 1.92, a: 0}
+    - _SnowAngle: {r: 2.91, g: 6.12, b: 1.92, a: 0}
     - _SnowColor: {r: 1.8490566, g: 1.8490566, b: 1.8490566, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &7240334466546135372
