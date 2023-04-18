@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8401077935740354138
+--- !u!114 &-2226055629627501743
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BlackHole
-  m_Shader: {fileID: -6465566751694194690, guid: bbd4f3f789228a6479d6e12fadb465ed,
+  m_Name: Shader Graphs_Exp1
+  m_Shader: {fileID: -6465566751694194690, guid: de7dec64ddbb42343b7acaa57de0ca85,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -48,9 +48,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FresnelPower: 1.27
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _FresnelColor: {r: 15.874505, g: 3.075166, b: 0, a: 1}
+    - _Color: {r: 4, g: 3.120419, b: 0, a: 0}
+    - _Color_1: {r: 4, g: 0.3764706, b: 0, a: 0}
   m_BuildTextureStacks: []
